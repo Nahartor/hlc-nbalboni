@@ -5,25 +5,30 @@ import random
 from ast import Return
 
 # Vamos a transformar la eleccion del usuario a número.
-def texto_a_num(j1=""):
+def texto_a_num(j1=0):
     num=0
-    min=j1.lower()
-    if min == "spock":
-        num=1
-    elif min == "tijeras":
-        num=2
-    elif min == "papel":
-        num=3
-    elif min == "piedra":
-        num=4
-    elif min == "lagarto":
-        num=5
-    else:
-        print("Tu elección no es válida.")
+    salir=False
+    while salir==False:
+        try:
+            min=j1.lower()
+            if min == "spock":
+                num=1
+            elif min == "tijeras":
+                num=2
+            elif min == "papel":
+                num=3
+            elif min == "piedra":
+                num=4
+            elif min == "lagarto":
+                num=5
 
+        except:
+            print("Tu elección no es válida.") 
+        else:
+            print(num)
+            salir=True
     return num
-
-# Comienzo del script
+ 
 print("Juguemos a piedra, papel, tijeras, lagarto, Spock.")
 j1=(input("Introduce tu elección: "))   
 
