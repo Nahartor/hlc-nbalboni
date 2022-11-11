@@ -6,7 +6,7 @@
 import random
 
 # Funciones
-    # Comprobar posiciones acertadas (EN PROCESO)
+# Comprobar posiciones acertadas (EN PROCESO)
 def comprobar(intento,desglose):
     posiciones=[]
 
