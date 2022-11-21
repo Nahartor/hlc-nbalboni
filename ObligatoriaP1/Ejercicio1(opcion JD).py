@@ -51,3 +51,4 @@ else:
     print("¡Has ganado!")
     
 # lpaneque: Faltaría por incluir "Tras jugar una partida, deberás volver a solicitar al usuario si quiere jugar otra y así sucesivamente hasta que el usuario introduzca  no."
+# Si introduces algo no válido se produce un bucle infinito mostrando "Tu elección no es válida"
