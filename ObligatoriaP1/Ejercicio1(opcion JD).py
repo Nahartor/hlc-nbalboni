@@ -5,7 +5,8 @@ import random
 from ast import Return
 
 # Vamos a transformar la eleccion del usuario a número.
-def texto_a_num(j1=0):
+def texto_a_num(j1=0): # lpaneque: Se supone que j1 es un texto, no tiene sentido que el valor por defecto sea 0, Esto puede ocasionar errores. 
+    # Si es un texto el valor por defecto podría ser vacío ""
     num=0
     salir=False
     while salir==False:
@@ -33,7 +34,7 @@ def texto_a_num(j1=0):
 print("Juguemos a piedra, papel, tijeras, lagarto, Spock.")
 j1=(input("Introduce tu elección: "))   
 
-entrada_usuario=texto_a_num()
+entrada_usuario=texto_a_num() # El programa no está funcionando porque aquí no le pasas la elección del jugador j1.
 print(entrada_usuario) # lpaneque: Supongo que este print y el de abajo son a modo de log, pero en realidad al usuario no le dicen nada.
 numero_aleatorio =random.randint(1,5) # Esto podría ir en una función llamada generar_opcion_maquina
 print(numero_aleatorio)
