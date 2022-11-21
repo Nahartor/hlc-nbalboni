@@ -5,7 +5,7 @@
 import random
 
 # Definimos funciones
-def extraer_num(cadena):
+def extraer_num(cadena): # lpaneque: Esta función ya existe en Python, se llama list(cadena) y lo que hace es convertir una cadena de texto en lista.
     num=[]
     for i in str(cadena):
         num.append(int(i))
@@ -20,7 +20,7 @@ seguir=True
 while seguir:
     numero_jugador=input("Intenta adivinar el código secreto: ")
 
-    cadena_secreto=extraer_num(numero_secreto)
+    cadena_secreto=extraer_num(numero_secreto) # Esto es una acción repetitiva, imagina que tienes que comparar 100 números, sería mejor utilizar un bucle
     num_sec_1=cadena_secreto[0]
     num_sec_2=cadena_secreto[1]
     num_sec_3=cadena_secreto[2]
@@ -31,6 +31,15 @@ while seguir:
     num_jug_2=cadena_jugador[1]
     num_jug_3=cadena_jugador[2]
     num_jug_4=cadena_jugador[3]
+    
+    # Para el bucle que te he comentado antes podrías hacer algo así:
+    # acertado = True
+    # for i in range (0, length(cadena_secreto)):
+    #   if cadena_secreto[i] != cadena_jugador[i]:
+    #       acertado = False
+    #       break
+    # if acertado:
+    #   print("ACERTADO")
 
     # ¿Ganaste?
 
@@ -41,7 +50,7 @@ while seguir:
     # Parece que no, te doy una pista.
     else:
         # Primer número
-        if num_jug_1==num_sec_1:
+        if num_jug_1==num_sec_1: # Este if está repetido cuatro veces, podrías meterlo en una función a la que le pasas dos números y te dice si te has pasado o te has quedado corto.
             print("¡Enhorabuena! El primer número coincide.")
 
         elif num_jug_1>num_sec_1:
@@ -83,7 +92,7 @@ while seguir:
         opcion=input("¿Quieres probar otra vez? [Y/N]")
 
         # ¿Continue?
-        op=True
+        op=True   
         while op:
             if opcion=="Y" or opcion=="y":
                 seguir=True
