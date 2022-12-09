@@ -20,8 +20,14 @@ def detecta_anagrama(palabra1,palabra2):
 
 palabra1=input("Introduce la primera palabra: ")
 palabra2=input("Introduce la segunda palabra: ")
-if detecta_anagrama(palabra1,palabra2) == True:
-    print(f"{palabra1} y {palabra2} son anagramas.")
+
+if len(palabra1) != len(palabra2):
+    print(f"{palabra1} y {palabra2} no son anagramas.")
 
 else:
-    print(f"{palabra1} y {palabra2} no son anagramas.")
+
+    if detecta_anagrama(palabra1,palabra2) == True:
+        print(f"{palabra1} y {palabra2} son anagramas.")
+
+    else:
+        print(f"{palabra1} y {palabra2} no son anagramas.")

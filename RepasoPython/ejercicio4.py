@@ -1,6 +1,6 @@
 # Author: Nicolás Balboni
 # Date: 12/12/2022
-# Name: Repaso Python - Ejercicio 3
+# Name: Repaso Python - Ejercicio 4
 
 #Preparación del programa y definicion de variables globales
 import sys
