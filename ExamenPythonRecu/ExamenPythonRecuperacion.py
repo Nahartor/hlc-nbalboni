@@ -38,7 +38,7 @@ else:
 """
 
 #Ejercicio 2
-"""
+
 # Author: Nicolás Balboni
 # Date: 12/02/2022
 # Name: Examen Python Recuperación. Ejercicio 2
@@ -63,9 +63,8 @@ except FileNotFoundError:
 except:
     print("Se ha producido un error inesperado.")
 else:
-    for i in range(49):
+    for i in range(int(len(ciudades))):
         print(f"Origen: {ciudades[i]['origen']} - Destino: {ciudades[i]['destino']} - Km: {ciudades[i]['km']}")
-"""
 #Ejercicio 3
 """
 print("*****************************EJERCICIO 3******************************")
