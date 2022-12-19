@@ -11,7 +11,7 @@ with open(archivo, 'r') as File:
     reader = csv.DictReader(File)
     for row in reader:
         cientificos.append(row)
-
+#lpaneque: Recuerda que las funciones siempre arriba, antes de comenzar a ejecutar código.
 #Creamos una función que muestre los datos por pantalla:
 def mostrarDatos():
     for i in range(int(len(cientificos))):
@@ -108,3 +108,6 @@ while salir==False:
     elif opcion=="7":
         print("¡Hasta luego!")
         salir=True
+        
+        
+ #lpaneque: Buen trabajo!
