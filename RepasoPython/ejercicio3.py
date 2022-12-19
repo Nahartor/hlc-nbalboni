@@ -17,3 +17,5 @@ for i in coincidencias:
     texto = texto.replace(i,clave[i])
 
 print(texto)
+
+# lpaneque: Great!
