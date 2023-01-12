@@ -59,4 +59,5 @@ checkLetra(numeros,letra)
 #Si ninguna de las funciones encuentra un error que finalice el programa, lanzamos un mensaje por pantalla indicando que el formato del DNI es correcto.
 print("El formato del DNI es correcto.")
 
+#lpaneque: Puedes chequar todas las opciones sin necesidad de utilizar sys.exit y que aparezcan todos los errores del dni.
 #Un problema que le encuentro a mi método es que no es capaz de evaluar varios fallos simultaneamente. Ya que, cuando encuentra el primer fallo, finaliza el programa.
