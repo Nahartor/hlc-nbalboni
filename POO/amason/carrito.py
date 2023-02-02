@@ -1,6 +1,7 @@
 # CARRITO PARA LA APP DE AMASON
 
 import metodos_pago
+import productos
 
 # Cliente
 class Cliente:
@@ -26,7 +27,21 @@ class Carrito:
         self.cliente = cliente
 
     # Métodos del carrito
-    def añadir_tarjeta():
-        temporal=(input("Ingrese el titular: "),input("Ingrese la dirección de facturación: "),input("Ingrese el numero de tarjeta: "),input("Ingrese la fecha de caducidad: "),input("Ingrese el cvv: "))
-        nombre_tarjeta="Tarjeta1"
-        nombre_tarjeta=temporal
+    # Añadir articulo a la cesta
+    #def añadir_articulo(nombre,cantidad)
+
+
+
+
+
+
+# Creamos productos
+libro1=productos.Libro("Harry Potter y la piedra filosofal",1234,23,"Primer libro de la saga de Harry Potter",
+"HP123","Fantasia","J.K.Rowling","Dura")
+videojuego1=productos.Videojuego("Rocket Leage",2345,30,"Futbol con coches","Epic Games","Psyonix","eSports",8)
+mueble1=productos.Mueble("Skrunfel",3456,50,"Es una estantería...¿Qué más quieres saber?","60x70x25","Estantería","Madera")
+ropa1=productos.Ropa("Camiseta",4567,20,"Se mete por la cabeza","XXL","Algodón","Hombre")
+
+
+
+metodos_pago.Pago.pagar("",25,"Euros")

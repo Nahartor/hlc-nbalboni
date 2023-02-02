@@ -12,6 +12,9 @@ class Producto:
         self.precio = precio
         self.descripcion = descripcion
 
+    def __str__(self):
+        return f"Nombre: {self.nombre}\nCódigo: {self.codigo}\nPrecio: {self.precio}\nDescripción: {self.descripcion}"
+
 # Creamos cada tipo de producto como una clase hija
 
 # Libro
@@ -24,6 +27,9 @@ class Libro(Producto):
         self.genero = genero
         self.tapa = tapa
 
+    def __str__(self):
+        return f"{super().__str__()}\nISBN: {self.isbn}\nAutor: {self.autor}\nGénero: {self.genero}\nTapa: {self.tapa}" 
+
 # Videojuego
 class Videojuego(Producto):
     # Constructor de la clase hija
@@ -34,6 +40,9 @@ class Videojuego(Producto):
         self.genero = genero
         self.pegi = pegi
 
+    def __str__(self):
+        return f"{super().__str__()}\nPlataforma: {self.plataforma}\nDesarrolladora: {self.desarrolladora}\nGénero: {self.genero}\nPEGI: {self.pegi}"
+
 # Mueble
 class Mueble(Producto):
     def __init__(self, nombre, codigo, precio, descripcion,dimensiones,tipo,material):
@@ -42,6 +51,9 @@ class Mueble(Producto):
         self.tipo = tipo
         self.material = material
 
+    def __str__(self):
+        return f"{super().__str__()}\nDimensiones: {self.dimensiones}\nTipo: {self.tipo}\nMaterial: {self.material}"
+
 # Ropa
 class Ropa(Producto):
     def __init__(self, nombre, codigo, precio, descripcion,talla,material,corte = "Unisex"):
@@ -49,3 +61,8 @@ class Ropa(Producto):
         self.talla = talla
         self.material = material
         self.corte = corte
+
+    def __str__(self):
+        return f"{super().__str__()}\nTalla: {self.talla}\nMaterial: {self.material}\nCorte: {self.corte}"
+
+
