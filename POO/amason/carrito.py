@@ -3,6 +3,8 @@
 import metodos_pago
 import productos
 
+lista_productos=[]
+
 # Cliente
 class Cliente:
 
@@ -28,7 +30,14 @@ class Carrito:
 
     # Métodos del carrito
     # Añadir articulo a la cesta
-    #def añadir_articulo(nombre,cantidad)
+    def añadir_articulo(self,nombre,cantidad):
+        self.nombre = nombre
+        self.cantidad = cantidad
+
+        for i in range(0,{cantidad}):
+            lista_productos.append({nombre})
+
+        print(lista_productos)
 
 
 
@@ -44,4 +53,5 @@ ropa1=productos.Ropa("Camiseta",4567,20,"Se mete por la cabeza","XXL","Algodón"
 
 
 
-metodos_pago.Pago.pagar("",25,"Euros")
+#metodos_pago.Pago.pagar("",25,"Euros")
+Carrito.añadir_articulo()
