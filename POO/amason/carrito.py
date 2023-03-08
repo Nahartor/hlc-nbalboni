@@ -30,14 +30,15 @@ class Carrito:
 
     # Métodos del carrito
     # Añadir articulo a la cesta
-    def añadir_articulo(self,nombre,cantidad):
-        self.nombre = nombre
-        self.cantidad = cantidad
+    def añadir_articulo(nombre,cantidad):
+        nombre = nombre
+        cantidad = cantidad
 
-        for i in range(0,{cantidad}):
-            lista_productos.append({nombre})
+        for i in 0,cantidad:
+            lista_productos.append(print(nombre))
 
-        print(lista_productos)
+        num_articulos=len(lista_productos)
+        print(f"Número de objetos en el carrito: {num_articulos}")
 
 
 
@@ -54,4 +55,13 @@ ropa1=productos.Ropa("Camiseta",4567,20,"Se mete por la cabeza","XXL","Algodón"
 
 
 #metodos_pago.Pago.pagar("",25,"Euros")
-Carrito.añadir_articulo()
+Carrito.añadir_articulo(libro1,2)
+#print(libro1)
+print(lista_productos[1])
+
+"""total=0
+for objeto in lista_productos:
+    total += objeto.precio
+
+print (total)
+"""

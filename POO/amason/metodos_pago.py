@@ -50,10 +50,15 @@ class Tarjeta(Pago):
     def pagar(self):
         var1=input("Seleccione la tarjeta con la que desea pagar: ")
 
-        if var1=="Tarjeta1":
-            print("Estas pagando con la Tarjeta1.")
-            print("La información de la Tarjeta1 es la siguiente:")
+        if var1=="tarjeta1":
+            print("Estas pagando con la tarjeta1.")
+            print("La información de la tarjeta1 es la siguiente:")
             print(tarjeta1)
+
+        if var1=="tarjeta2":
+            print("Estas pagando con la tarjeta2.")
+            print("La información de la tarjeta2 es la siguiente:")
+            print(tarjeta2)
 
 # Transferencia
 class Transferencia(Pago):
@@ -67,7 +72,18 @@ class Transferencia(Pago):
 
     # Creamos los metodos para este objeto
     def pagar(self):
-        print("Estas pagando mediante transferencia.")
+        var2=input("Seleccione que transferencia desea utilizar: ")
+
+        if var2=="transferencia1":
+            print("Estas pagando mediante transferencia1.")
+            print("La informacón de la transferencia1 es la siguiente:")
+            print(transferencia1)
+
+        if var2=="transferencia2":
+            print("Estás pagando mediante transferencia2.")
+            print("La información de la transferencia2 es la siguiente:")
+            print(transferencia2)
+
 
 # Bizum
 class Bizum(Pago):
@@ -81,7 +97,17 @@ class Bizum(Pago):
 
     # Creamos los metodos para este objeto
     def pagar(self):
-        print("Estas pagando con Bizum.")
+        var3=input("Seleccione que bizum desea utilizar: ")
+
+        if var3=="bizum1":
+            print("Estas pagando mediante bizum1.")
+            print("La informacón de la bizum1 es la siguiente:")
+            print(bizum1)
+
+        if var3=="bizum2":
+            print("Estás pagando mediante bizum2.")
+            print("La información de la bizum2 es la siguiente:")
+            print(bizum2)
 
 # PayPal
 class PayPal(Pago):
@@ -98,9 +124,10 @@ class PayPal(Pago):
         print("Estas pagando con PayPal.")
 
 
-# Cremos métodos de pago
+# Cremos métodos de pago (idealmente debería haber una función en al carrito que nos permitiese añadir nosotros mismos los métodos de pago)
 tarjeta1=Tarjeta(200,"Nicolás Balboni","Mi Casa",1234123412341234,"05/26",122)
 tarjeta2=Tarjeta(500,"Amparo Valladares Casero","La roza del caracol",4321432143214321,"11/12",211)
 transferencia1=Transferencia("","","1111223333444455556666","")
 transferencia2=Transferencia("","","2222334444555566667777","")
 bizum1=Bizum("","",666123123,)
+bizum2=Bizum("","",644123123,)

@@ -13,7 +13,7 @@ class Producto:
         self.descripcion = descripcion
 
     def __str__(self):
-        return f"Nombre: {self.nombre}\nCódigo: {self.codigo}\nPrecio: {self.precio}\nDescripción: {self.descripcion}"
+        return f"Nombre: {self.nombre}, Código: {self.codigo}, Precio: {self.precio}, Descripción: {self.descripcion}"
 
 # Creamos cada tipo de producto como una clase hija
 
@@ -28,7 +28,7 @@ class Libro(Producto):
         self.tapa = tapa
 
     def __str__(self):
-        return f"{super().__str__()}\nISBN: {self.isbn}\nAutor: {self.autor}\nGénero: {self.genero}\nTapa: {self.tapa}" 
+        return f"{super().__str__()}, ISBN: {self.isbn} , Autor: {self.autor} , Género: {self.genero} , Tapa: {self.tapa}" 
 
 # Videojuego
 class Videojuego(Producto):
