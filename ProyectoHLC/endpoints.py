@@ -9,19 +9,19 @@ router = APIRouter()
 @router.get("/asignatura")
 def get_asignatura(nombre_asignatura = None):
     if nombre_asignatura:
-        return user_conn.get_asig_by_name(nombre_asignatura)
+        return get_db.get_asig_by_name(nombre_asignatura)
     else:
-        return UsersDBConnection.listar_asignaturas()
+        return get_db.listar_asignaturas()
 
-
-@router.get("/pokemon/{pokemon_id}")
-def get_a_pokemon(pokemon_id):
-    if poke := get_db().get_by_id(pokemon_id):
-        return poke
+"""
+@router.get("/alumno/{nombre}_{apellidos}")
+def get_alumno(nombre, apellidos):
+    if alu := get_db.get_alum_by_name(nombre, apellidos):
+        return alu
     else:
         raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND, 
-                detail=f"Pokemon with ID {pokemon_id} doesn't exists")
+                detail=f"El alumno {apellidos}, {nombre} no existe en la base de datos.")
 
 
 @router.post("/pokemon", status_code=status.HTTP_201_CREATED)
@@ -48,3 +48,4 @@ def delete_pokemon(pokemon_id):
         get_db().delete(pokemon_id)
     except Exception:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Couldn't delete pokemon ID {pokemon_id}")
+"""

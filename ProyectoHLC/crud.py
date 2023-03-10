@@ -45,6 +45,16 @@ class Asignatura:
     def __str__(self):
         return f"Asignatura con nombre {self.nombre} impartida por el profesor/a {self.profesor}"
     
+class Alumno:
+    def __init__(self, id, nombre, apellidos, email):
+        self.id = id
+        self.nombre = nombre
+        self.apellidos = apellidos
+        self.email = email
+
+    def __str__(self):
+        return f"Nombre alumno: {self.apellidos}, {self.nombre}.\ne-mail: {self.email}"
+    
 class UsersDBConnection(DatabaseConnection):
 
     def insertar_asignatura(self,nombre, profesor):
@@ -59,11 +69,18 @@ class UsersDBConnection(DatabaseConnection):
             asignaturas.append(Asignatura(idasig,nombre,profesor))
         return asignaturas
     
+    def get_alum_by_name(self, nombre, apellidos):
+        cur = self.get_cursor()
+        cur.execute("select id, nombre, apellidos, email from alumnos where ((nombre LIKE ?) and (apellidos LIKE ?))",(nombre, apellidos))
+        for (id, nombre, apellidos, email) in cur:
+            return Alumno(id, nombre, apellidos, email)
+    
     def get_asig_by_name(self, nombre):
         cur = self.get_cursor()
         cur.execute("Select idasig, nombre, profesor from asignaturas where nombre LIKE ?",(nombre,))
         for (idasig, nombre, porfesor) in cur:
-            return Asignatura(idasig, nombre, porfesor)
+            asignatura=Asignatura(idasig, nombre, porfesor)
+            return asignatura#Asignatura(idasig, nombre, porfesor)
 
     def update_asig_by_name(self, nombre, campo, valor):
         cur = self.get_cursor()

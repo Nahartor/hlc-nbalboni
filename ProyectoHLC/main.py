@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
-from pokemon_service.endpoints import router, get_db, Pokemon
-from pokemon_service.utils import load_from_file
+from endpoints import router#, get_db, Pokemon
+#from pokemon_service.utils import load_from_file
 
 
 app = FastAPI()
@@ -16,7 +16,7 @@ def get_root():
 def health_check():
     return "OK"
 
-
+"""
 @app.on_event("startup")
 def startup_event():
     for pkmn_dict in load_from_file():
@@ -24,7 +24,7 @@ def startup_event():
             name=pkmn_dict.get("name"), 
             pkmn_type=pkmn_dict.get("type_1"),
             id=pkmn_dict.get("number")))
-
+"""
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+    uvicorn.run(app, host="localhost", port=5000)
