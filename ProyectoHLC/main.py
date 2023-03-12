@@ -1,6 +1,7 @@
 import uvicorn
 from fastapi import FastAPI, HTTPException, status, Body
 import crud as database
+import json
 
 app = FastAPI()
 
@@ -33,35 +34,43 @@ def get_asignatura(idasig):
 @app.post("/insertar_asignatura", status_code=status.HTTP_201_CREATED)
 def insertar_asignatura(datos = Body()):
     try:
-        nueva = database.json_to_pithon(datos = Body())
+        nuevos_datos= json.loads(datos)
+        print(nuevos_datos)
+        nueva = database.json_to_pithon(nuevos_datos)
+        # print(nueva)
         nueva.insertar_asignatura()
         return "Asignatura insertada con éxito"
     except Exception:
-        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=f"Imposible insertar asignatura")
+        raise HTTPException(
+            #status_code=status.HTTP_409_CONFLICT, 
+            detail=f"Imposible insertar asignatura")
 
 
-@app.put("/asignatura/{nombre}")
-def update_asignatura(nombre, datos = Body()):
+@app.put("/asignatura/{idasig}")
+def update_asignatura(idasig, datos2 = Body()):
     try:
-        if old_idasig := database.get_asig_by_name(nombre):
-            database.update_asig_by_name(nombre, datos)
+        modificada= database.json_to_pithon_2(datos2)
+        if old_idasig := database.get_asig_by_id(idasig):
+            modificada.update_asig_by_id(idasig, datos2)
             return "La asignatura ha sido actualizada con éxito"
         else:
             return "El nombre de asignatura introducido no se encuentra en la base de datos"
     except Exception:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, 
+            # status_code=status.HTTP_404_NOT_FOUND, 
             detail=f"Error a al actualizar la asignatura.")
 
 
-@app.delete("/asignatura/{nomrbe}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_asignatura(nombre):
+@app.delete("/asignatura/{idasig}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_asignatura(idasig):
     try:
-        check= database.delete_asig_by_name(nombre)
+        check= database.delete_asig_by_id(idasig)
         if check == 0:
             return "La signatura ha sido borrada con éxito"
     except Exception:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Imposible eliminar la asignatura {nombre}")
+        raise HTTPException(
+            # status_code=status.HTTP_404_NOT_FOUND, 
+            detail=f"Imposible eliminar la asignatura.")
 
 
 if __name__ == "__main__":
