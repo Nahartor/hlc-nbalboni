@@ -42,16 +42,17 @@ def insertar_asignatura(datos = Body()):
         return "Asignatura insertada con éxito"
     except Exception:
         raise HTTPException(
-            #status_code=status.HTTP_409_CONFLICT, 
+            status_code=status.HTTP_409_CONFLICT, 
             detail=f"Imposible insertar asignatura")
 
 
 @app.put("/asignatura/{idasig}")
 def update_asignatura(idasig, datos2 = Body()):
     try:
-        modificada= database.json_to_pithon_2(datos2)
+        nuevos_datos= json.loads(datos2)
+        modificada= database.json_to_pithon_2(nuevos_datos)
         if old_idasig := database.get_asig_by_id(idasig):
-            modificada.update_asig_by_id(idasig, datos2)
+            modificada.update_asig_by_id(idasig)
             return "La asignatura ha sido actualizada con éxito"
         else:
             return "El nombre de asignatura introducido no se encuentra en la base de datos"
@@ -69,7 +70,7 @@ def delete_asignatura(idasig):
             return "La signatura ha sido borrada con éxito"
     except Exception:
         raise HTTPException(
-            # status_code=status.HTTP_404_NOT_FOUND, 
+            status_code=status.HTTP_404_NOT_FOUND, 
             detail=f"Imposible eliminar la asignatura.")
 
 
