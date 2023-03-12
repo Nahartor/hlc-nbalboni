@@ -1,12 +1,8 @@
-from crud import DatabaseConnection, UsersDBConnection, Asignatura
+from crud import Asignatura
 #from pokemon_service.entity import Pokemon
 from fastapi import APIRouter, HTTPException, status, Body
-from conn import get_db
 
-router = APIRouter()
-
-
-@router.get("/asignatura")
+get_db("/asignatura")
 def get_asignatura(nombre_asignatura = None):
     if nombre_asignatura:
         return get_db.get_asig_by_name(nombre_asignatura)
