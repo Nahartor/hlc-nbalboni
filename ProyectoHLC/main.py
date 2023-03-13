@@ -34,15 +34,15 @@ def get_asignatura(idasig):
 @app.post("/insertar_asignatura", status_code=status.HTTP_201_CREATED)
 def insertar_asignatura(datos = Body()):
     try:
+        print(datos)
         nuevos_datos= json.loads(datos)
         print(nuevos_datos)
         nueva = database.json_to_pithon(nuevos_datos)
-        # print(nueva)
         nueva.insertar_asignatura()
         return "Asignatura insertada con éxito"
     except Exception:
         raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT, 
+            #status_code=status.HTTP_409_CONFLICT, 
             detail=f"Imposible insertar asignatura")
 
 
@@ -58,7 +58,7 @@ def update_asignatura(idasig, datos2 = Body()):
             return "El nombre de asignatura introducido no se encuentra en la base de datos"
     except Exception:
         raise HTTPException(
-            # status_code=status.HTTP_404_NOT_FOUND, 
+            status_code=status.HTTP_404_NOT_FOUND, 
             detail=f"Error a al actualizar la asignatura.")
 
 

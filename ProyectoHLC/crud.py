@@ -1,8 +1,8 @@
 import sys
 from  mariadb import connect, Error
 
-host="localhost"
-port=10307
+host="172.26.0.34"#casa"localhost"
+port=3306#casa10307
 user="fulanito"
 database="instituto"
 password="1234"
@@ -36,21 +36,21 @@ def listar_asignaturas():
     cur=conn.cursor()
     cur.execute("select * from asignaturas")
     for (idasig,nombre,profesor) in cur:
-        asignaturas.append(Asignatura(idasig,nombre,profesor))
+        asignaturas.append(Asignatura(idasig=idasig,nombre=nombre,profesor=profesor))
     return asignaturas
 
 def get_asig_by_name(nombre):
     cur = conn.cursor()
     cur.execute("Select idasig, nombre, profesor from asignaturas where nombre LIKE ?",(nombre,))
-    for (idasig, nombre, porfesor) in cur:
-        asignatura=Asignatura(idasig, nombre, porfesor)
+    for (idasig, nombre, profesor) in cur:
+        asignatura=Asignatura(idasig=idasig, nombre=nombre, profesor=profesor)
         return asignatura#Asignatura(idasig, nombre, porfesor) 
     
 def get_asig_by_id(idasig):
     cur = conn.cursor()
     cur.execute("Select idasig, nombre, profesor from asignaturas where idasig LIKE ?",(idasig,))
-    for (idasig, nombre, porfesor) in cur:
-        asignatura=Asignatura(idasig, nombre, porfesor)
+    for (idasig, nombre, profesor) in cur:
+        asignatura=Asignatura(idasig=idasig, nombre=nombre, profesor=profesor)
         return asignatura#Asignatura(idasig, nombre, porfesor) 
 
 def json_to_pithon(datos):
